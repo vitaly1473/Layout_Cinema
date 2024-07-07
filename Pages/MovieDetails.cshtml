@@ -1,0 +1,28 @@
+﻿@* Pages/MovieDetails.cshtml *@
+
+@page "{id}"
+@model Layout_Cinema.Pages.MovieDetailsModel
+@{
+    ViewBag.Title = "MovieDetails";
+    Layout = "/Pages/Shared/_Layout.cshtml";
+    int id = -1;
+    try
+    {
+        id = Int32.Parse(RouteData.Values["id"].ToString());
+    }
+    catch (Exception) { }
+}
+<body>
+    <h2>@Model.Movie.Name_</h2>
+    <h5> О фильме </h5>
+    <p><strong>Director:</strong> @Model.Movie.Director_</p>
+    <p><strong>Year:</strong> @Model.Movie.Year_</p>
+    <p style="font-style: italic"> <strong> Description: </strong>  @Model.Movie.Description_</p>
+
+    <a href="/About">Back to List of Movies </a>
+
+    @section Footer {
+        Copyright© Cinema.com, @DateTime.Now.Year. All rights reserved
+    }
+</body>
+<!-- 27 lines of code -->

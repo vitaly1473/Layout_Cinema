@@ -1,0 +1,84 @@
+﻿<!-- add to folder Pages/Shared файл _Layout.cshtml    -->
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Main | @ViewBag.Title</title>
+    <style>
+        /* устанавливаем высоту html и body на 100%, чтобы они занимали всю высоту окна браузера */
+        html, body {
+            height: 100%;
+            margin: 0; /* убираем стандартные отступы */
+        }
+        body {
+            display: flex; /* Flexbox для обеспечения растяжения содержимого и прижатия подвала к низу */
+            flex-direction: column;
+            margin: 0 15px;
+            padding: 5px 10px 0;
+            /*background-color: rgb(240, 240, 240); /* серый цвет, фон всей страницы */
+            background-color: rgb(135, 160, 245);
+            font-family: Verdana, sans-serif; /* стиль шрифта Verdana без засечек */
+            font-size: 18px;
+            color: black; /* цвет текста */
+        } 
+        .content {
+            flex: 1; /* растягиваем этот блок, чтобы занять доступное пространство */
+        }
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .schedule-table, .schedule-table th, .schedule-table td {
+            border: 1px solid black;
+        }
+
+        .schedule-table th, .schedule-table td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .schedule-table th:nth-child(1),
+        .schedule-table td:nth-child(1) {
+            width: 40%;
+        }
+
+        .schedule-table th:nth-child(2),
+        .schedule-table td:nth-child(2) {
+            width: 20%;
+        }
+
+        .schedule-table th:nth-child(3),
+        .schedule-table td:nth-child(3) {
+            width: 20%;
+        }
+
+        .schedule-table th:nth-child(4),
+        .schedule-table td:nth-child(4) {
+            width: 20%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f1f1f1;
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>@ViewBag.Title</h2> <!-- Здесь задается значение ViewBag.Title, которое применяется на мастер-странице для вывода заголовка -->
+    <div><a href="/">Home</a> | <a href="About"> Movies </a></div>
+    <div class="content">
+        @RenderBody() <!-- Этот метод будет вставлять содержимое страниц Razor, которые используют данную мастер-страницу -->
+    </div>
+
+    <footer>@RenderSection("Footer")</footer> <!-- специальный метод RenderSection() для вставки секций -->
+
+</body>
+</html>
+<!-- 83 lines of code -->

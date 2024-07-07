@@ -1,0 +1,43 @@
+﻿@* Pages/About.cshtml *@
+@page
+@model Layout_Cinema.Pages.AboutModel
+@{
+    ViewBag.Title = "Our films";
+    Layout = "/Pages/Shared/_Layout.cshtml"; @* ссылка на файл с разметкой страницы *@
+}
+<h3> Find a movie </h3>
+
+
+<body>
+    <h2>Welcome to List of Movies!</h2>
+    
+    <h3>Movies:</h3>
+
+    <ul>
+        @for (int i = 0; i < Model.Movies.Count; i++)
+        {
+            var movie = Model.Movies[i];
+            <li>
+                <a href="/MovieDetails/@movie.Id_">@movie.Name_</a> <!-- (Director: @movie.Director_, Year: @movie.Year_, Описание @movie.Description_) -->
+            </li>
+        }
+    </ul>
+    <h2>@Model.Message</h2>
+
+    <h3>Time: @Model.PrintTime()</h3>
+
+    @section Footer {
+        Copyright© Cinema.com, @DateTime.Now.Year. All rights reserved
+    }
+
+    @* 2 вариант *@
+    @*  <ul>
+    <li>
+    <a href="/MovieDetails/0"> Дневник Бриждит Джонс </a>
+    <a href="/MovieDetails/1"> Социальная сеть </a>
+    <a href="/MovieDetails/2"> Искусство самообороны </a>
+    </li>
+    </ul> *@
+
+</body>
+<!-- 43 lines of code -->

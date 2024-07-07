@@ -1,0 +1,22 @@
+﻿@*ViewStart.cshtml
+Хотя выше приведенный код вполне успешно работает, у нас есть одна проблема - мы сталкиваемся с необходимостью на каждой странице явным образом прописывать, какую мастер-страницу layout будет применять страницы. 
+Чтобы упростить данное действие, можно применять файлы _ViewStart.cshtml  
+ Применение этого файла не работает! *@
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

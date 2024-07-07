@@ -1,0 +1,28 @@
+﻿@* Pages/SheduleDetails.cshtml *@
+
+@page "{id}"
+@model Layout_Cinema.Pages.SheduleDetailsModel
+@{
+    ViewBag.Title = "Session Details";
+    Layout = "/Pages/Shared/_Layout.cshtml";
+    int id = -1;
+    try
+    {
+        id = Int32.Parse(RouteData.Values["id"].ToString());
+    }
+    catch (Exception) { }
+}
+<body>
+<h2>@Model.Schedule.Name_</h2>
+<h5> Сеанс </h5>
+<p><strong>Date:</strong> @Model.Schedule.Date_</p>
+<p><strong>Time:</strong> @Model.Schedule.Time_</p>
+<p style="font-style: italic"> <strong> Price: </strong>  @Model.Schedule.Price_ rub.</p>
+
+    <a href="/Index"> Back to Main  </a>
+
+    @section Footer {
+        Copyright© Cinema.com, @DateTime.Now.Year. All rights reserved
+    }
+</body>
+<!-- 27 lines of code -->
